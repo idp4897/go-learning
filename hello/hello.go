@@ -8,18 +8,21 @@ import (
 )
 
 func main() {
-
-	// Set properties of the predefined Logger, including
-	// the log entry prefix and a flag to disable printing
-	// the time, source file, and line number
+	// setting log
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
 
-	message, err := greeting.Hello("Care")
+
+	names := []string{"Care", "Surachok", "Hemadhulin"}
+
+	messages, err := greeting.Hellos(names)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(message)
+	for _, message:= range messages {
+		fmt.Println(message)
+	}
+
 }
